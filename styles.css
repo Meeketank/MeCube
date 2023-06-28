@@ -1,0 +1,107 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%; /* Added */
+  perspective: 800px;
+}
+
+#box {
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  transform: rotateX(0deg) rotateY(0deg);
+}
+
+/* Rest of the CSS code remains the same */
+
+
+.side {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  opacity: 0.8;
+  backface-visibility: hidden;
+  border: 4.3px solid black;
+  border-radius: 10px;
+  display: flex; /* Added */
+  justify-content: center; /* Added */
+  align-items: center; /* Added */
+}
+
+.front {
+  background-color: blue;
+  transform: translateZ(100px);
+}
+
+.right {
+  background-color: cyan;
+  transform: rotateY(90deg) translateZ(100px);
+}
+
+.back {
+  background-color: green;
+  transform: rotateY(180deg) translateZ(100px);
+}
+
+.left {
+  background-color: yellow;
+  transform: rotateY(-90deg) translateZ(100px);
+}
+
+.top {
+  background-color: #ff9cac;
+  transform: rotateX(90deg) translateZ(100px);
+}
+
+.bottom {
+  background-color: red;
+  transform: rotateX(-90deg) translateZ(100px);
+}
+
+.front:before {
+  content: "WELCOME TO MEEKETANK MECUBE";
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+
+.left:before {
+  content: "LINKEDIN";
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+}
+
+.back:before {
+  content: "GITHUB PROJECT'S";
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+.right:before {
+  content: "EMAIL ME";
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+}
+
+.top:before {
+  content: "ABOUT ME";
+  font-size: 18px;
+  font-weight: bold;
+  color: blue;
+}
+
+.bottom:before {
+  content: "WEBSITE";
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}

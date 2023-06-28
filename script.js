@@ -1,0 +1,88 @@
+// const box = document.getElementById('box');
+// let rotateX = 0;
+// let rotateY = 0;
+// const step = 5; 
+
+// window.addEventListener('scroll', function() {
+//   const scrollPercentage = (document.documentElement.scrollTop + window.innerHeight) / document.documentElement.scrollHeight;
+//   rotateY = scrollPercentage * 360;
+//   rotateBox();
+// });
+
+// window.addEventListener('keydown', function(event) {
+//   switch (event.key) {
+//     case 'ArrowUp':
+//       rotateX -= step;
+//       break;
+//     case 'ArrowDown':
+//       rotateX += step;
+//       break;
+//     case 'ArrowLeft':
+//       rotateY -= step;
+//       break;
+//     case 'ArrowRight':
+//       rotateY += step;
+//       break;
+//   }
+//   rotateBox();
+// });
+
+// function rotateBox() {
+//   box.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+// }
+
+const box = document.getElementById('box');
+let rotateX = 0;
+let rotateY = 0;
+
+function rotateCube() {
+  box.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+}
+
+function handleKeyDown(event) {
+  const { key } = event;
+  
+  if (key === 'ArrowUp' || key === 'w' || key === 'W') {
+    rotateX -= 30;
+  } else if (key === 'ArrowDown' || key === 's' || key === 'S') {
+    rotateX += 30;
+  } else if (key === 'ArrowLeft' || key === 'a' || key === 'A') {
+    rotateY -= 30;
+  } else if (key === 'ArrowRight' || key === 'd' || key === 'D') {
+    rotateY += 30;
+  }
+  
+  rotateCube();
+}
+
+function handleTouchStart(event) {
+  const touch = event.touches[0];
+  startX = touch.clientX;
+  startY = touch.clientY;
+}
+
+function handleTouchMove(event) {
+  if (!startX || !startY) return;
+  
+  const touch = event.touches[0];
+  const deltaX = touch.clientX - startX;
+  const deltaY = touch.clientY - startY;
+  
+  rotateY += deltaX * 0.5;
+  rotateX -= deltaY * 0.5;
+  
+  rotateCube();
+  
+  startX = touch.clientX;
+  startY = touch.clientY;
+}
+
+function handleTouchEnd() {
+  startX = null;
+  startY = null;
+}
+
+window.addEventListener('keydown', handleKeyDown, false);
+window.addEventListener('touchstart', handleTouchStart, false);
+window.addEventListener('touchmove', handleTouchMove, false);
+window.addEventListener('touchend', handleTouchEnd, false);
