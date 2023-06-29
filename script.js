@@ -53,3 +53,12 @@ window.addEventListener('keydown', handleKeyDown, false);
 window.addEventListener('touchstart', handleTouchStart, false);
 window.addEventListener('touchmove', handleTouchMove, false);
 window.addEventListener('touchend', handleTouchEnd, false);
+
+function handleResetButtonClick() {
+  rotateX = 0;
+  rotateY = 0;
+  rotateCube();
+}
+
+const resetButton = document.getElementById('reset-button');
+resetButton.addEventListener('click', handleResetButtonClick);
