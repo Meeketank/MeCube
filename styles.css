@@ -2,7 +2,6 @@ body {
   overflow: hidden;
 }
 
-
 .container {
   display: flex;
   justify-content: center;
@@ -22,7 +21,6 @@ body {
 
 /* Rest of the CSS code remains the same */
 
-
 .side {
   position: absolute;
   width: 200px;
@@ -31,9 +29,9 @@ body {
   backface-visibility: hidden;
   border: 4.3px solid black;
   border-radius: 10px;
-  display: flex; /* Added */
-  justify-content: center; /* Added */
-  align-items: center; /* Added */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .front {
@@ -109,4 +107,27 @@ body {
   font-weight: bold;
   color: white;
   text-align: center;
+}
+
+/* Mobile-specific styles */
+@media screen and (max-width: 768px) {
+  #box {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .side {
+    width: 150px;
+    height: 150px;
+    border-width: 3px;
+  }
+  
+  .front:before,
+  .left:before,
+  .back:before,
+  .right:before,
+  .top:before,
+  .bottom:before {
+    font-size: 14px;
+  }
 }
