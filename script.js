@@ -24,8 +24,8 @@ function handleKeyDown(event) {
 
 function handleTouchStart(event) {
   const touch = event.touches[0];
-  startX = touch.clientX;
-  startY = touch.clientY;
+  startX = touch.clientY;
+  startY = touch.clientX;
 }
 
 function handleTouchMove(event) {
