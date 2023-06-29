@@ -2,68 +2,64 @@ body {
   overflow: hidden;
 }
 
-
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  width: 100%; /* Added */
+  width: 100%;
   perspective: 800px;
 }
 
 #box {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   transform-style: preserve-3d;
   transition: transform 0.5s;
   transform: rotateX(0deg) rotateY(0deg);
 }
 
-/* Rest of the CSS code remains the same */
-
-
 .side {
   position: absolute;
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   opacity: 0.8;
   backface-visibility: hidden;
   border: 4.3px solid black;
   border-radius: 10px;
-  display: flex; /* Added */
-  justify-content: center; /* Added */
-  align-items: center; /* Added */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .front {
   background-color: blue;
-  transform: translateZ(100px);
+  transform: translateZ(150px);
 }
 
 .right {
   background-color: cyan;
-  transform: rotateY(90deg) translateZ(100px);
+  transform: rotateY(90deg) translateZ(150px);
 }
 
 .back {
   background-color: green;
-  transform: rotateY(180deg) translateZ(100px);
+  transform: rotateY(180deg) translateZ(150px);
 }
 
 .left {
   background-color: yellow;
-  transform: rotateY(-90deg) translateZ(100px);
+  transform: rotateY(-90deg) translateZ(150px);
 }
 
 .top {
   background-color: #ff9cac;
-  transform: rotateX(90deg) translateZ(100px);
+  transform: rotateX(90deg) translateZ(150px);
 }
 
 .bottom {
   background-color: red;
-  transform: rotateX(-90deg) translateZ(100px);
+  transform: rotateX(-90deg) translateZ(150px);
 }
 
 .front:before {
