@@ -62,3 +62,9 @@ function handleResetButtonClick() {
 
 const resetButton = document.getElementById('reset-button');
 resetButton.addEventListener('click', handleResetButtonClick);
+
+const darkButton = document.getElementById('dark-button');
+
+  darkButton.addEventListener('click', function() {
+    window.location.href = 'darkindex.html';
+  });
