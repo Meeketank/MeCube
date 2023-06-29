@@ -1,10 +1,61 @@
 <!DOCTYPE html>
 <html>
+
+<!-- adding -->
+<style>
+  @keyframes falling-papers {
+    0% {
+      transform: translateY(-100%) translateX(-50%) rotate(0deg);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(100vh) translateX(-50%) rotate(720deg);
+      opacity: 1;
+    }
+  }
+  
+  .paper {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    width: 20px;
+    height: 20px; 
+    transform-origin: center center;
+    animation: falling-papers 4s linear infinite;
+  }
+</style>
+<!-- pt1 -->
+
 <head>
-  <title>MeCube</title>
+  <title>Flipping Box</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
+
+  <!-- adding something new -->
+  <script>
+    function createPapers() {
+      const numPapers = 100;
+      const colors = ["red", "blue", "green", "yellow","pink", "purple", "orange"];
+    
+      for (let i = 0; i < numPapers; i++) {
+        const paper = document.createElement('div');
+        paper.className = 'paper';
+        paper.style.left = `${Math.random() * 100}vw`;
+        paper.style.setProperty('--offset', Math.random());
+        paper.style.animationDelay = `${Math.random() * 4}s`;
+    
+        // Assign random background color
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        paper.style.backgroundColor = randomColor;
+    
+        document.body.appendChild(paper);
+      }
+    }
+    createPapers();
+  </script>
+  <!-- done -->
+
   <div class="container">
     <div id="box">
       <div class="side front"></div>
