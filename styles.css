@@ -107,22 +107,47 @@ body {
   text-align: center;
 }
 
-.reset-button{
+.dark-button{
   position: fixed;
-  top: 20px;
-  left: 20px;
+  top: 30px;
+  right: 50px;
   height: 125px;
   width: 175px;
+  padding: 30px;
+  text-align: center;
+  background-color: #000000;
+  color: #fff;
+  padding: 10px 20px;
+  border-color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: x-large;
+  transition: background-color 0.3s;
+}
+
+.dark-button:hover {
+  background-color: #ffffff;
+  border-color: #000000;
+  color: #000000;
+}
+
+.reset-button{
+  position: fixed;
+  top: 30px;
+  left: 50px;
+  height: 125px;
+  width: 175px;
+  padding: 30px;
+  text-align: center;
   background-color: #f44336;
   color: #fff;
   padding: 10px 20px;
-  font-size: x-large;
   border-radius: 5px;
   text-decoration: none;
+  font-size: x-large;
   transition: background-color 0.3s;
 }
 
 .reset-button:hover {
   background-color: #811b1b;
 }
-
