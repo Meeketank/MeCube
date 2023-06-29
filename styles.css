@@ -106,3 +106,20 @@ body {
   color: white;
   text-align: center;
 }
+
+.reset-button{
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: #f44336;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.reset-button:hover {
+  background-color: #811b1b;
+}
+
