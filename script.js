@@ -24,24 +24,24 @@ function handleKeyDown(event) {
 
 function handleTouchStart(event) {
   const touch = event.touches[0];
-  startX = touch.clientY;
-  startY = touch.clientX;
+  startX = touch.clientX;
+  startY = touch.clientY;
 }
 
 function handleTouchMove(event) {
   if (!startX || !startY) return;
   
   const touch = event.touches[0];
-  const deltaX = touch.clientY - startX;
-  const deltaY = touch.clientX - startY;
+  const deltaX = touch.clientX - startX;
+  const deltaY = touch.clientY - startY;
   
   rotateY += deltaX * 0.5;
   rotateX -= deltaY * 0.5;
   
   rotateCube();
   
-  startX = touch.clientY;
-  startY = touch.clientX;
+  startX = touch.clientX;
+  startY = touch.clientY;
 }
 
 function handleTouchEnd() {
