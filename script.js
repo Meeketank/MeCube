@@ -32,7 +32,7 @@ function handleTouchMove(event) {
   if (!startX || !startY) return;
   
   const touch = event.touches[0];
-  const deltaX = touch.clientX + startX;
+  const deltaX = touch.clientX - startX;
   const deltaY = touch.clientY - startY;
   
   rotateY += deltaX * 0.5;
