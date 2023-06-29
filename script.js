@@ -10,7 +10,7 @@ function rotateCube() {
 
 function handleKeyDown(event) {
   const { key } = event;
-  
+
   if (key === 'ArrowUp' || key === 'w' || key === 'W') {
     rotateX -= 30;
   } else if (key === 'ArrowDown' || key === 's' || key === 'S') {
@@ -20,7 +20,7 @@ function handleKeyDown(event) {
   } else if (key === 'ArrowRight' || key === 'd' || key === 'D') {
     rotateY += 30;
   }
-  
+
   rotateCube();
 }
 
@@ -32,15 +32,15 @@ function handleTouchStart(event) {
 
 function handleTouchMove(event) {
   if (!startX || !startY) return;
-  
+
   const touch = event.touches[0];
-  const deltaX = touch.clientX - startX;
+  const deltaX = startX - touch.clientX; // Adjusted the sign of the calculation
   const deltaY = touch.clientY - startY;
-  
-  rotateY += -deltaX * 0.5; // Adjusted the sign of the calculation
-  
+
+  rotateY += deltaX * 0.5;
+
   rotateCube();
-  
+
   startX = touch.clientX;
   startY = touch.clientY;
 }
