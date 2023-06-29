@@ -66,5 +66,5 @@ resetButton.addEventListener('click', handleResetButtonClick);
 const lightButton = document.getElementById('dark-button');
 
   lightButton.addEventListener('click', function() {
-    window.location.href = 'index.html';
+    window.location.href = 'home.html';
   });
