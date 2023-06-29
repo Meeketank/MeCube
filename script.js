@@ -1,6 +1,8 @@
 const box = document.getElementById('box');
 let rotateX = 0;
 let rotateY = 0;
+let startX = null;
+let startY = null;
 
 function rotateCube() {
   box.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
@@ -35,8 +37,7 @@ function handleTouchMove(event) {
   const deltaX = touch.clientX - startX;
   const deltaY = touch.clientY - startY;
   
-  rotateY += deltaX * 0.5;
-  rotateX -= deltaY * 0.5;
+  rotateY += -deltaX * 0.5; // Adjusted the sign of the calculation
   
   rotateCube();
   
