@@ -1,108 +1,55 @@
-body {
-  overflow: hidden;
+const box = document.getElementById('box');
+let rotateX = 0;
+let rotateY = 0;
+
+function rotateCube() {
+  box.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100%;
-  perspective: 800px;
+function handleKeyDown(event) {
+  const { key } = event;
+  
+  if (key === 'ArrowUp' || key === 'w' || key === 'W') {
+    rotateX -= 30;
+  } else if (key === 'ArrowDown' || key === 's' || key === 'S') {
+    rotateX += 30;
+  } else if (key === 'ArrowLeft' || key === 'a' || key === 'A') {
+    rotateY -= 30;
+  } else if (key === 'ArrowRight' || key === 'd' || key === 'D') {
+    rotateY += 30;
+  }
+  
+  rotateCube();
 }
 
-#box {
-  width: 300px;
-  height: 300px;
-  transform-style: preserve-3d;
-  transition: transform 0.5s;
-  transform: rotateX(0deg) rotateY(0deg);
+function handleTouchStart(event) {
+  const touch = event.touches[0];
+  startX = touch.clientX;
+  startY = touch.clientY;
 }
 
-.side {
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  opacity: 0.8;
-  backface-visibility: hidden;
-  border: 4.3px solid black;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+function handleTouchMove(event) {
+  if (!startX || !startY) return;
+  
+  const touch = event.touches[0];
+  const deltaX = touch.clientX - startX;
+  const deltaY = touch.clientY - startY;
+  
+  rotateY += deltaX * 0.5;
+  rotateX -= deltaY * 0.5;
+  
+  rotateCube();
+  
+  startX = touch.clientX;
+  startY = touch.clientY;
 }
 
-.front {
-  background-color: blue;
-  transform: translateZ(150px);
+function handleTouchEnd() {
+  startX = null;
+  startY = null;
 }
 
-.right {
-  background-color: cyan;
-  transform: rotateY(90deg) translateZ(150px);
-}
-
-.back {
-  background-color: green;
-  transform: rotateY(180deg) translateZ(150px);
-}
-
-.left {
-  background-color: yellow;
-  transform: rotateY(-90deg) translateZ(150px);
-}
-
-.top {
-  background-color: #ff9cac;
-  transform: rotateX(90deg) translateZ(150px);
-}
-
-.bottom {
-  background-color: red;
-  transform: rotateX(-90deg) translateZ(150px);
-}
-
-.front:before {
-  content: "WELCOME TO MEEKETANK MECUBE";
-  text-align: center;
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
-}
-
-.left:before {
-  content: "LINKEDIN";
-  font-size: 18px;
-  font-weight: bold;
-  color: black;
-}
-
-.back:before {
-  content: "GITHUB PROJECT'S";
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
-  text-align: center;
-}
-
-.right:before {
-  content: "EMAIL ME";
-  font-size: 18px;
-  font-weight: bold;
-  color: black;
-}
-
-.top:before {
-  content: "ABOUT ME";
-  font-size: 18px;
-  font-weight: bold;
-  color: blue;
-}
-
-.bottom:before {
-  content: "WEBSITE";
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
-  text-align: center;
-}
+window.addEventListener('keydown', handleKeyDown, false);
+window.addEventListener('touchstart', handleTouchStart, false);
+window.addEventListener('touchmove', handleTouchMove, false);
+window.addEventListener('touchend', handleTouchEnd, false);
