@@ -8,18 +8,17 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  width: 100%;
+  width: 100%; /* Added */
   perspective: 800px;
 }
 
 #box {
-  width: 400px;
-  height: 400px;
+  width: 200px;
+  height: 200px;
   transform-style: preserve-3d;
   transition: transform 0.5s;
-  transform: translate(-50%, -50%) rotateX(0deg) rotateY(0deg); /* Added translate(-50%, -50%) */
+  transform: rotateX(0deg) rotateY(0deg);
 }
-
 
 /* Rest of the CSS code remains the same */
 
