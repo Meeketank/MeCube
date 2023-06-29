@@ -13,8 +13,8 @@ body {
 }
 
 #box {
-  width: 400px;
-  height: 400px;
+  width: 200px;
+  height: 200px;
   transform-style: preserve-3d;
   transition: transform 0.5s;
   transform: rotateX(0deg) rotateY(0deg);
