@@ -2,82 +2,111 @@ body {
   overflow: hidden;
 }
 
+
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  width: 100%; /* Added */
+  perspective: 800px;
 }
 
 #box {
-  width: 400px;
-  height: 550px;
-  background-color: #fff;
-  border: 4px solid #f44336;
+  width: 250px;
+  height: 250px;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  transform: rotateX(0deg) rotateY(0deg);
+}
+
+/* Rest of the CSS code remains the same */
+
+
+.side {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  opacity: 0.8;
+  backface-visibility: hidden;
+  border: 4.3px solid black;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  padding: 20px;
+  display: flex; /* Added */
+  justify-content: center; /* Added */
+  align-items: center; /* Added */
+}
+
+.front {
+  background-color: blue;
+  transform: translateZ(100px);
+}
+
+.right {
+  background-color: cyan;
+  transform: rotateY(90deg) translateZ(100px);
+}
+
+.back {
+  background-color: green;
+  transform: rotateY(180deg) translateZ(100px);
+}
+
+.left {
+  background-color: yellow;
+  transform: rotateY(-90deg) translateZ(100px);
+}
+
+.top {
+  background-color: #ff9cac;
+  transform: rotateX(90deg) translateZ(100px);
+}
+
+.bottom {
+  background-color: red;
+  transform: rotateX(-90deg) translateZ(100px);
+}
+
+.front:before {
+  content: "WELCOME TO MEEKETANK MECUBE";
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+
+.left:before {
+  content: "LINKEDIN";
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+}
+
+.back:before {
+  content: "GITHUB PROJECT'S";
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
   text-align: center;
 }
 
-.cube-diagram {
-  width: 100px;
-  height: 100px;
-  background-color: #f44336;
-  margin: 0 auto 20px;
-  border-radius: 10px;
+.right:before {
+  content: "EMAIL ME";
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
 }
 
-.content {
-  color: #333;
+.top:before {
+  content: "ABOUT ME";
+  font-size: 18px;
+  font-weight: bold;
+  color: blue;
 }
 
-h1 {
-  font-size: 24px;
-}
-
-p {
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-.back-button {
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-  color: #333;
-  font-size: 16px;
-  margin-bottom: 10px;
-  position: relative;
-  z-index: 2;
-}
-
-.back-button svg {
-  vertical-align: middle;
-  margin-right: 5px;
-}
-
-/* Mobile-specific styles */
-@media screen and (max-width: 768px) {
-  #box {
-    width: 300px;
-    height: 400px;
-  }
-  
-  .cube-diagram {
-    width: 70px;
-    height: 70px;
-  }
-  
-  h1 {
-    font-size: 20px;
-  }
-  
-  p {
-    font-size: 14px;
-  }
-  
-  .back-button {
-    font-size: 14px;
-  }
+.bottom:before {
+  content: "WEBSITE";
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
 }
