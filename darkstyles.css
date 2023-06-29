@@ -1,0 +1,156 @@
+body {
+  overflow: hidden;
+  background: #000000;
+  background-color: #000000;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  perspective: 800px;
+}
+
+#box {
+  width: 300px;
+  height: 300px;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  transform: rotateX(0deg) rotateY(0deg);
+}
+
+.side {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  opacity: 0.8;
+  backface-visibility: hidden;
+  border: 4.3px solid #fff;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.front {
+  background-color: blue;
+  transform: translateZ(150px);
+}
+
+.right {
+  background-color: cyan;
+  transform: rotateY(90deg) translateZ(150px);
+}
+
+.back {
+  background-color: green;
+  transform: rotateY(180deg) translateZ(150px);
+}
+
+.left {
+  background-color: yellow;
+  transform: rotateY(-90deg) translateZ(150px);
+}
+
+.top {
+  background-color: #ff9cac;
+  transform: rotateX(90deg) translateZ(150px);
+}
+
+.bottom {
+  background-color: red;
+  transform: rotateX(-90deg) translateZ(150px);
+}
+
+.front:before {
+  content: "WELCOME TO MEEKETANK MECUBE";
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+
+.left:before {
+  content: "LINKEDIN";
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+}
+
+.back:before {
+  content: "GITHUB PROJECT'S";
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+.right:before {
+  content: "EMAIL ME";
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+}
+
+.top:before {
+  content: "ABOUT ME";
+  font-size: 18px;
+  font-weight: bold;
+  color: blue;
+}
+
+.bottom:before {
+  content: "WEBSITE";
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+.dark-button{
+  position: fixed;
+  top: 30px;
+  right: 50px;
+  height: 125px;
+  width: 175px;
+  padding: 30px;
+  text-align: center;
+  background-color: #000000;
+  color: #fff;
+  padding: 10px 20px;
+  border-color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: x-large;
+  transition: background-color 0.3s;
+}
+
+.dark-button:hover {
+  background-color: #ffffff;
+  border-color: #000000;
+  color: #000000;
+}
+
+.reset-button{
+  position: fixed;
+  top: 30px;
+  left: 50px;
+  height: 125px;
+  width: 175px;
+  padding: 30px;
+  text-align: center;
+  background-color: #f44336;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border-color: pink;
+  text-decoration: none;
+  font-size: x-large;
+  transition: background-color 0.3s;
+}
+
+.reset-button:hover {
+  background-color: #811b1b;
+}
